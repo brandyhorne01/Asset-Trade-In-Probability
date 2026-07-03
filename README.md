@@ -1,115 +1,225 @@
-# Asset-Trade-In-Probability
-# ⏳ Predicting Asset Trade-In Probability with Survival Analysis
+# ⏳ Asset Trade-In Probability Prediction
+### Predicting Commercial Asset Trade-In Timing with Survival Analysis
 
 **Author:** Brandy Horne  
-**Tags:** Survival Analysis, Cox Proportional Hazards, Kaplan-Meier, Tableau, Predictive Modeling, CRISP-DM
+**Tech Stack:** Python • Survival Analysis • XGBoost • Lifelines • SQL Server • Tableau • Machine Learning
 
 ---
 
-## 🎯 The Business Problem
-
-In industries where assets have long operational lifespans, predicting *when* a customer is likely to return or trade in a product can drive powerful logistics and pricing strategies. This project focused on forecasting **the probability of commercial asset trade-ins** over a 24-month period using survival analysis.
-
-The objective was to support **planning and pricing teams** with visibility into expected return timelines—reducing idle inventory, improving resale strategy, and aligning operations with customer behavior.
+<p align="center">
+  <img src="images/project-overview.png" width="1000">
+</p>
 
 ---
 
-## 🔍 Business & Domain Understanding
+## 🚀 Project Overview
 
-To begin, I investigated key factors influencing asset trade-in behavior:
+Organizations managing large commercial asset fleets need to anticipate when customers are likely to trade in equipment in order to optimize inventory, pricing, logistics, and resource planning. Traditional regression models predict *if* an event occurs, but not *when*.
 
-- **Operational cycles:** mileage thresholds, wear-and-tear expectations
-- **Contractual triggers:** lease ends, incentives, service renewals
-- **Customer segments:** regional usage, company size, historical trade behavior
+This project applies **Survival Analysis** and machine learning techniques to estimate both the probability and expected timing of customer asset trade-ins. The solution transforms historical operational data into actionable forecasts that support strategic business decisions and long-term planning.
 
-The outcome needed to be explainable, actionable, and integrated into strategic forecasting discussions.
+The final model outputs were delivered through interactive **Tableau dashboards**, allowing business users to explore future trade activity by fleet, geography, customer, and asset characteristics.
 
 ---
 
-## 🧠 Data Understanding
+# ⭐ Key Features
 
-I aggregated data across several internal sources, including:
-
-- **Asset attributes:** age, mileage, service history, model type
-- **Customer profiles:** industry, usage patterns, geographic distribution
-- **Historical trade-ins:** event timing, frequency, and return conditions
-
-Key metrics included asset age at return, usage intensity, and external economic indicators tied to replacement cycles.
-
----
-
-## 🧹 Data Preparation
-
-I transformed the dataset into a **time-to-event structure**, labeling trade-in events as binary outcomes and censored records where applicable.
-
-- Cleaned and normalized features
-- Removed anomalies and inconsistent return dates
-- Created derived variables (e.g., mileage per year, service frequency)
-- Encoded categorical variables for modeling inputs
+- Time-to-event prediction using Survival Analysis
+- Kaplan-Meier survival estimation
+- Cox Proportional Hazards modeling
+- XGBoost Survival Modeling
+- Advanced feature engineering
+- Fleet-level forecasting
+- Tableau executive dashboards
+- Business-focused risk segmentation
+- Interactive probability forecasting
 
 ---
 
-## 🔬 Modeling
+# 🎯 Business Problem
 
-### Kaplan-Meier Estimator
-Used as an exploratory tool to visualize survival curves across customer and asset segments.
+Commercial vehicles often remain in service for many years, making it difficult to predict when customers will replace or trade them. Unexpected trade-ins impact inventory availability, pricing strategy, logistics planning, and revenue forecasting.
 
-- Estimated overall survival function (i.e., probability of not trading in)
-- Compared survival rates across asset types and usage groups
-
-### Cox Proportional Hazards Model
-Selected for its interpretability and ability to handle censored data.
-
-- Modeled hazard ratios to quantify the influence of features on trade-in likelihood
-- Validated proportional hazards assumptions
-- Optimized for simplicity and business relevance
+The objective of this project was to build a predictive framework capable of estimating both **when** an asset is likely to be traded in and **how likely** that event is to occur within a given time horizon.
 
 ---
 
-## 📊 Evaluation
+# 🔍 Business Understanding
 
-- Evaluated model fit using log-likelihood and concordance index (C-index)
-- Conducted stratified visual validation with KM overlays
-- Sensitivity tested variable inclusion and cohort consistency
+Understanding asset replacement behavior required combining multiple operational and business factors including:
 
----
+- Vehicle age and utilization
+- Mileage accumulation
+- Lease and financing cycles
+- Customer purchasing behavior
+- Historical trade patterns
+- Market conditions
+- Economic indicators
 
-## 📈 Deployment
-
-I deployed the insights into a **Tableau dashboard** for executive leadership and planners:
-
-- Interactive filters by asset class, geography, and customer profile
-- Quarterly updates with trade-in probability curves and segment summaries
-- Integrated alerts for assets entering high-risk return windows
-
-Monthly insights were presented to leadership, driving actionable pricing and logistics interventions.
+The resulting model needed to provide interpretable predictions that business stakeholders could confidently use for planning and operational decision-making.
 
 ---
 
-## ✅ Results
+# 📂 Data Sources
 
-- Improved visibility into expected asset return timing
-- Enabled proactive pricing strategy adjustments based on churn risk
-- Informed logistics resource planning with high-risk return cohorts
+Historical data was integrated from multiple internal systems including:
 
----
+- Asset inventory records
+- Customer information
+- Historical trade-in transactions
+- Sales history
+- Operational metrics
+- Market indicators
+- Service and maintenance records
 
-## 🛠️ Tools Used
-
-- **Languages:** Python, SQL  
-- **Libraries:** Lifelines, pandas, NumPy, Seaborn, Matplotlib  
-- **Visualization:** Tableau  
-- **Techniques:** Kaplan-Meier, Cox PH, censoring, hazard modeling
-
----
-
-## 💡 Key Takeaways
-
-1. Survival analysis offers interpretable, business-aligned predictions for time-based events.
-2. Proper data structuring and variable engineering are crucial for event modeling.
-3. Executive dashboards can translate statistical models into strategic foresight.
+Additional engineered features captured long-term ownership behavior and replacement trends.
 
 ---
 
-**Contact:**  
-[GitHub](https://github.com/brandyanalytics) | [LinkedIn](https://linkedin.com/in/brandyhorne01) | Brandyhorne01@gmail.com  
+# 🧹 Data Preparation
+
+Significant preprocessing was performed to prepare the dataset for time-to-event modeling.
+
+Activities included:
+
+- Data cleaning
+- Missing value treatment
+- Feature normalization
+- Outlier detection
+- Event labeling
+- Right-censoring identification
+- Feature engineering
+- SQL data integration
+
+Several business-derived variables were created to better represent customer replacement behavior and asset lifecycle characteristics.
+
+---
+
+# 🤖 Modeling Approach
+
+Multiple survival modeling techniques were evaluated throughout development.
+
+## Kaplan-Meier Estimator
+
+Used to understand baseline survival behavior and compare trade-in patterns across customer segments.
+
+Applications included:
+
+- Survival curve estimation
+- Segment comparisons
+- Cohort analysis
+- Exploratory analysis
+
+---
+
+## Cox Proportional Hazards
+
+Developed an interpretable hazard model that quantified how business variables influenced trade-in risk over time.
+
+Key activities included:
+
+- Hazard ratio estimation
+- Assumption testing
+- Feature selection
+- Model interpretation
+
+---
+
+## XGBoost Survival Modeling
+
+Gradient boosting techniques were explored to improve predictive performance by capturing nonlinear relationships and complex interactions between operational variables.
+
+Compared against traditional survival models using multiple evaluation metrics.
+
+---
+
+# 📈 Model Evaluation
+
+Model performance was evaluated using:
+
+- Concordance Index (C-Index)
+- Log-Likelihood
+- Integrated Brier Score
+- Cross-validation
+- Calibration analysis
+- Survival curve validation
+
+Business validation was performed by comparing predicted trade timing against historical fleet behavior.
+
+---
+
+# 📊 Tableau Dashboard
+
+The predictive outputs were deployed into an interactive Tableau dashboard that allowed planners and leadership teams to explore future trade activity.
+
+### Dashboard Features
+
+- Fleet-level forecasting
+- Trade probability by customer
+- Predicted trade dates
+- Monthly forecast summaries
+- Geographic filtering
+- Executive KPI reporting
+- Operational planning metrics
+
+<p align="center">
+  <img src="images/tableau-dashboard.png" width="900">
+</p>
+
+---
+
+# 📈 Business Impact
+
+The solution enabled stakeholders to:
+
+- Improve inventory planning
+- Anticipate future trade volumes
+- Optimize pricing strategy
+- Support logistics forecasting
+- Identify high-risk customer segments
+- Increase confidence in long-term planning
+
+---
+
+# 🛠️ Technology Stack
+
+### Languages
+
+- Python
+- SQL
+
+### Machine Learning
+
+- Lifelines
+- Scikit-Survival
+- XGBoost
+- Scikit-Learn
+
+### Data Processing
+
+- Pandas
+- NumPy
+- SciPy
+
+### Visualization
+
+- Tableau
+- Matplotlib
+
+---
+
+# 💡 Key Takeaways
+
+This project demonstrates how survival analysis can move beyond healthcare applications to solve complex business forecasting problems.
+
+By combining statistical modeling, machine learning, feature engineering, and business intelligence, the project transforms historical operational data into actionable forecasts that improve strategic planning and decision-making.
+
+---
+
+## 📬 Connect
+
+**Brandy Horne**
+
+- GitHub: https://github.com/brandyhorne01
+- LinkedIn: https://linkedin.com/in/brandyhorne01
+- Email: brandyhorne01@gmail.com

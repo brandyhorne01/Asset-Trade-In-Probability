@@ -7,7 +7,7 @@
 ---
 
 <p align="center">
-  <img src="images/project-overview.png" width="1000">
+  <img src="images/Trade-In.png" width="1000">
 </p>
 
 ---
